@@ -1,4 +1,4 @@
-**
+    /**
      * Este método redimensiona a imagem considerando o tamanho da label. Ele
      * ajusta automaticamente ao ponto menor, supondo que a imagem seja mais
      * larga que a label. O método reduz a escala da imagem para se encaixar na
@@ -17,22 +17,22 @@
         double alturaDaLabel = jlLogo.getHeight();
         
         //Encontra a distancia de um ponto a outro da imágem cruzando pelo centro.
-        double distanciaCentral = Math.sqrt(larguraDaImagem + alturaDaImagem); // hipotenusa = raiz de lado vezes altura
-        double percentReducaoPelaLargura = (larguraDaLabel * distanciaCentral) / alturaDaImagem; //regra de 3 para achar o percentual de redução x = largura atual * hipotenusa / largura da imagem
+        double distanciaCentral = Math.sqrt(larguraDaImagem + alturaDaImagem); // distanciaCentral = raiz de lado + altura
+        double percentReducaoPelaLargura = (larguraDaLabel * distanciaCentral) / alturaDaImagem; //regra de 3 para achar o percentual de redução x = largura da label * distanciaCentral / largura da imagem
         double novaAlturaImagem = (percentReducaoPelaLargura * larguraDaImagem) / distanciaCentral; //regra de 3
 
         larguraDaImagem = novaAlturaImagem;
         alturaDaImagem = larguraDaLabel;
 
         if (novaAlturaImagem > alturaDaLabel) {
-            distanciaCentral = Math.sqrt(larguraDaImagem + alturaDaImagem); // hipotenusa = raiz de lado vezes altura
-            double hipotenusaReduzidaPelaAlturaDaLabel = (alturaDaLabel * distanciaCentral) / larguraDaImagem; //regra de 3 para achar a hipotenusa reduzida x = largura atual * hipotenusa / largura da imagem
+            distanciaCentral = Math.sqrt(larguraDaImagem + alturaDaImagem); // distanciaCentral = raiz de lado vezes altura
+            double hipotenusaReduzidaPelaAlturaDaLabel = (alturaDaLabel * distanciaCentral) / larguraDaImagem; //regra de 3 para achar o percentual de redução x = largura da label * distanciaCentral / largura da imagem
             double novaLargura = (hipotenusaReduzidaPelaAlturaDaLabel * alturaDaImagem) / distanciaCentral; //regra de 3
             larguraDaImagem = alturaDaLabel;
             alturaDaImagem = novaLargura;
         } else {
-            distanciaCentral = Math.sqrt(larguraDaImagem + alturaDaImagem); // hipotenusa = raiz de lado vezes altura
-            percentReducaoPelaLargura = (larguraDaLabel * distanciaCentral) / alturaDaImagem; //regra de 3 para achar a hipotenusa reduzida x = largura atual * hipotenusa / largura da imagem
+            distanciaCentral = Math.sqrt(larguraDaImagem + alturaDaImagem); // distanciaCentral = raiz de lado vezes altura
+            percentReducaoPelaLargura = (larguraDaLabel * distanciaCentral) / alturaDaImagem; //regra de 3 para achar o percentual de redução x = largura da label * distanciaCentral / largura da imagem
             novaAlturaImagem = (percentReducaoPelaLargura * larguraDaImagem) / distanciaCentral; //regra de 3
 
         }
